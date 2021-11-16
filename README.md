@@ -16,3 +16,9 @@ Para la API, se utilizó la herramienta framework `Flask`, para ello, instalamos
 <!--sec data-title="Prompt: OS X and Linux" data-id="OSX_Linux_prompt" data-collapse=true ces-->
     $  pip3 install flask
 <!--endsec-->
+
+## Ejecucion de API
+Simplemente ejecutamos el archivo `app.py`
+<!--sec data-title="Prompt: OS X and Linux" data-id="OSX_Linux_prompt" data-collapse=true ces-->
+    $  python app.py
+<!--endsec-->
