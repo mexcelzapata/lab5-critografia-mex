@@ -7,7 +7,6 @@ sudo apt update
 sudo apt install software-properties-common
 sudo apt install python3.8.10
 sudo apt-get -y install python3-pip
-sudo pip3 install kafka-python
 ```
 
 ## Instalación API -REST 💅
