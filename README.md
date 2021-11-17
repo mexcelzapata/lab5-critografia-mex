@@ -21,3 +21,5 @@ Simplemente ejecutamos el archivo `app.py`
 <!--sec data-title="Prompt: OS X and Linux" data-id="OSX_Linux_prompt" data-collapse=true ces-->
     $  python app.py
 <!--endsec-->
+
+Utilizando un software para realizar pruebas a API como lo es `INSOMNIA` que es una aplicación que nos permite realizar pruebas API. Donde es un cliente HTTP que nos da la posibilidad de testear 'HTTP requests' a través de una interfaz gráfica de usuario.
