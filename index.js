@@ -25,7 +25,7 @@ const client = new Client({
 		console.log(res.Result.rows)
 		datos = res.json()
 		console.log("ayudaaaa")
-		client.end()
+		// client.end()
 		})
 		res.send(datos)
  	})
