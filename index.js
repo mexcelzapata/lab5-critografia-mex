@@ -19,17 +19,19 @@ const client = new Client({
   client.connect();
   let datos ={};
   
-  client.query('SELECT * from cripto', (err, res) => {
-	  // console.log(err, res) 
-	  //console.log(res.Result.rows)
-	  datos = res;
-	  console.log(res);
-	  //client.end();
-
-	  })
+  
 
 	  // tabla en json
  	 app.get('/tabla', (req,res)=>{
+		  
+		client.query('SELECT * from cripto', (err, res) => {
+			// console.log(err, res) 
+			//console.log(res.Result.rows)
+			datos = res;
+			console.log(res);
+			//client.end();
+	  
+		})
 		res.send(datos.rows);
  	})
 ///////////////////////////////////////////////
