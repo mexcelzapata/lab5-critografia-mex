@@ -22,7 +22,7 @@ const client = new Client({
 		// console.log(err, res) 
 		//console.log(res.Result.rows)
 		datos = res.data
-		console.log("ayudaaaa")
+		console.log(res)
 		client.end()
 		})
 		res.send(datos)
