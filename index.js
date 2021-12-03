@@ -18,19 +18,18 @@ const client = new Client({
 
 
   app.get('/tabla', (req,res)=>{
+	let datos = {}
+	
 	client.query('SELECT * from cripto', (err, res) => {
-		console.log(err, res)
+		// console.log(err, res) 
+		console.log(res.Result.rows)
+		datos = res.json()
 		client.end()
 		})
  	})
 
 
-	app.get('/tabla', (req,res)=>{
-		client.query('SELECT * from cripto', (err, res) => {
-			console.log(err, res)
-			client.end()
-		})
-	})
+
 
 
 
