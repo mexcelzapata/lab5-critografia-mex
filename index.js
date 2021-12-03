@@ -14,55 +14,43 @@ const client = new Client({
 	ssl: {rejectUnauthorized: false}
   })
 
-  client.connect()
+  client.connect();
   let datos ={};
   
   client.query('SELECT * from cripto', (err, res) => {
 
 	  // console.log(err, res) 
 	  //console.log(res.Result.rows)
-	  datos = res
-	  console.log(res)
-	  client.end()
+	  datos = res;
+	  console.log(res);
+	  client.end();
 
 	  })
 
   app.get('/tabla', (req,res)=>{
 
-		res.send(datos.rows)
-		return (`
-			<table >
-				<caption>Ejemplo de tabla</caption>
+		res.send(datos.rows);
+		a = (`
+			<table>
+				<thead>
+					<tr>
+						<th>Password</th><th>so</th><th>ip</th><th>id</th>
+					</tr>
+				</thead>
+				{datos.rows.map(dato=>
 				<tbody>
 					<tr>
-					<td></td>
-					<th>A</th>
-					<th>B</th>
-					</tr>
-					<tr>
-					<th>1</th>
-					<td>A1</td>
-					<td>B1</td>
-					</tr>
-					<tr>
-					<th>2</th>
-					<td>A2</td>
-					<td>B2</td>
+						<td>
+							dato.password
+						</td>
 					</tr>
 				</tbody>
-			</table>
-		`)
-
-
-
+				)}
+				
+			</table> `)
+		return a;
 
  	})
-
-
-
-
-
-
 
 
 app.listen(process.env.PORT,()=>{
