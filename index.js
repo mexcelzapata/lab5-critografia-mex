@@ -18,7 +18,6 @@ const client = new Client({
   let datos ={};
   
   client.query('SELECT * from cripto', (err, res) => {
-
 	  // console.log(err, res) 
 	  //console.log(res.Result.rows)
 	  datos = res;
@@ -27,30 +26,30 @@ const client = new Client({
 
 	  })
 
-  app.get('/tabla', (req,res)=>{
-
+	  // tabla en json
+ 	 app.get('/tabla', (req,res)=>{
 		res.send(datos.rows);
-		a = (`
-			<table>
-				<thead>
-					<tr>
-						<th>Password</th><th>so</th><th>ip</th><th>id</th>
-					</tr>
-				</thead>
-				{datos.rows.map(dato=>
-				<tbody>
-					<tr>
-						<td>
-							dato.password
-						</td>
-					</tr>
-				</tbody>
-				)}
-				
-			</table> `)
-		return a;
+ 	})
+
+	 
+
+	app.get('/datos', (req,res)=>{
+
+		console.log(req.query)
+		client.connect();
+		client.query('SELECT * from cripto', (err, res) => {
+			// console.log(err, res) 
+			//console.log(res.Result.rows)
+			datos = res;
+			console.log(res);
+			client.end();
+	  
+			})
+
 
  	})
+
+
 
 
 app.listen(process.env.PORT,()=>{
