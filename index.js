@@ -46,13 +46,9 @@ const client = new Client({
 			datos = res;
 			console.log(res);
 			//client.end();
-			if (err === null){
-				res.send("CARGADO");
-			}else{
-				res.send(err);
-			}
+	  
 			})
-		
+		res.send("CARGADO");
  	})
 
 ///////////////////////////////////////////////
