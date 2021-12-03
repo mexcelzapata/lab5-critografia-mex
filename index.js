@@ -14,19 +14,21 @@ const client = new Client({
 	ssl: {rejectUnauthorized: false}
   })
 
+  client.connect()
+  const datos ={};
+  
+  client.query('SELECT * from cripto', (err, res) => {
+
+	  // console.log(err, res) 
+	  //console.log(res.Result.rows)
+	  datos = res
+	  console.log(res)
+	  client.end()
+
+	  })
 
   app.get('/tabla', (req,res)=>{
-	
-	client.connect()
-	client.query('SELECT * from cripto', (err, res) => {
-		// console.log(err, res) 
-		//console.log(res.Result.rows)
-		datos = res.Result
-		console.log(res)
-		client.end()
 
-		})
-		.then(data=> console.log(data))
 		res.send(datos)
  	})
 
