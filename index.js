@@ -27,6 +27,7 @@ const client = new Client({
 		console.log("ayudaaaa")
 		client.end()
 		})
+		res.send(datos)
  	})
 
 
