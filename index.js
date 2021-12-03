@@ -16,15 +16,17 @@ const client = new Client({
 
 
   app.get('/tabla', (req,res)=>{
-	let datos = {}
+	
 	client.connect()
 	client.query('SELECT * from cripto', (err, res) => {
 		// console.log(err, res) 
 		//console.log(res.Result.rows)
-		datos = res.rows
+		datos = res.Result
 		console.log(res)
 		client.end()
+
 		})
+		.then(data=> console.log(data))
 		res.send(datos)
  	})
 
