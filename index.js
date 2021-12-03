@@ -21,7 +21,7 @@ const client = new Client({
 	client.query('SELECT * from cripto', (err, res) => {
 		// console.log(err, res) 
 		//console.log(res.Result.rows)
-		datos = res.data
+		datos = res.rows
 		console.log(res)
 		client.end()
 		})
