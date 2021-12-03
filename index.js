@@ -13,19 +13,17 @@ const client = new Client({
 	connectionString: process.env.DATABASE_URL, //
 	ssl: {rejectUnauthorized: false}
   })
-  client.connect()
-
 
 
   app.get('/tabla', (req,res)=>{
 	let datos = {}
-
+	client.connect()
 	client.query('SELECT * from cripto', (err, res) => {
 		// console.log(err, res) 
-		console.log(res.Result.rows)
-		datos = res.json()
+		//console.log(res.Result.rows)
+		datos = res.data
 		console.log("ayudaaaa")
-		// client.end()
+		client.end()
 		})
 		res.send(datos)
  	})
