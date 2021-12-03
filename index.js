@@ -18,9 +18,10 @@ const client = new Client({
   })
   client.connect()
 
-client.query("CREATE DATABASE cripto;", (err, res) => {
-    console.log(err, res);})
-
+  client.query('SELECT * from cripto', (err, res) => {
+	console.log(err, res)
+	client.end()
+  })
 
 
 app.listen(process.env.PORT,()=>{
