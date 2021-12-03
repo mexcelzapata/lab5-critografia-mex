@@ -7,10 +7,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req,res)=>{
-	console.log(req);
-	res.send('hola');
-})
+
 
 const client = new Client({
 	connectionString: process.env.DATABASE_URL, //
@@ -18,10 +15,25 @@ const client = new Client({
   })
   client.connect()
 
-  client.query('SELECT * from cripto', (err, res) => {
-	console.log(err, res)
-	client.end()
-  })
+
+
+  app.get('/tabla', (req,res)=>{
+	client.query('SELECT * from cripto', (err, res) => {
+		console.log(err, res)
+		client.end()
+		})
+ 	})
+
+
+	app.get('/tabla', (req,res)=>{
+		client.query('SELECT * from cripto', (err, res) => {
+			console.log(err, res)
+			client.end()
+		})
+	})
+
+
+
 
 
 app.listen(process.env.PORT,()=>{
