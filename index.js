@@ -30,6 +30,30 @@ const client = new Client({
   app.get('/tabla', (req,res)=>{
 
 		res.send(datos.rows)
+		return (`
+		<table>
+			<thead>
+				<tr>
+					<th>Password</th><th>so</th><th>ip</th><th>id</th>
+				</tr>
+			</thead>
+			{datos.rows.map(dato=>
+			<tbody>
+				<tr>
+					<td>
+						dato.password
+					</td>
+				</tr>
+			</tbody>
+			)}
+			
+		</table>
+		
+		`)
+
+
+
+
  	})
 
 
