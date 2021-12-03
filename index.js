@@ -29,7 +29,7 @@ const client = new Client({
 
   app.get('/tabla', (req,res)=>{
 
-		res.send(datos)
+		res.send(datos.rows)
  	})
 
 
