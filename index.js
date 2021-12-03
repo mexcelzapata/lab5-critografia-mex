@@ -15,7 +15,7 @@ const client = new Client({
   })
 
   client.connect()
-  const datos ={};
+  let datos ={};
   
   client.query('SELECT * from cripto', (err, res) => {
 
