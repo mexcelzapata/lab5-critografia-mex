@@ -31,24 +31,26 @@ const client = new Client({
 
 		res.send(datos.rows)
 		return (`
-		<table>
-			<thead>
-				<tr>
-					<th>Password</th><th>so</th><th>ip</th><th>id</th>
-				</tr>
-			</thead>
-			{datos.rows.map(dato=>
-			<tbody>
-				<tr>
-					<td>
-						dato.password
-					</td>
-				</tr>
-			</tbody>
-			)}
-			
-		</table>
-		
+			<table >
+				<caption>Ejemplo de tabla</caption>
+				<tbody>
+					<tr>
+					<td></td>
+					<th>A</th>
+					<th>B</th>
+					</tr>
+					<tr>
+					<th>1</th>
+					<td>A1</td>
+					<td>B1</td>
+					</tr>
+					<tr>
+					<th>2</th>
+					<td>A2</td>
+					<td>B2</td>
+					</tr>
+				</tbody>
+			</table>
 		`)
 
 
