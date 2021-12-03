@@ -23,7 +23,7 @@ const client = new Client({
 
 	  // tabla en json
  	 app.get('/tabla', (req,res)=>{
-		  
+
 		client.query('SELECT * from cripto', (err, res) => {
 			// console.log(err, res) 
 			//console.log(res.Result.rows)
@@ -45,10 +45,14 @@ const client = new Client({
 			//console.log(res.Result.rows)
 			datos = res;
 			console.log(res);
-			client.end();
-	  
+			//client.end();
+			if (err === null){
+				res.send("CARGADO");
+			}else{
+				res.send(err);
+			}
 			})
-
+		
  	})
 
 ///////////////////////////////////////////////
