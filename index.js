@@ -19,11 +19,12 @@ const client = new Client({
 
   app.get('/tabla', (req,res)=>{
 	let datos = {}
-	
+
 	client.query('SELECT * from cripto', (err, res) => {
 		// console.log(err, res) 
 		console.log(res.Result.rows)
 		datos = res.json()
+		console.log("ayudaaaa")
 		client.end()
 		})
  	})
