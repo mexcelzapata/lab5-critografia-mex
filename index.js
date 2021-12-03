@@ -16,6 +16,6 @@ app.get('/', (req,res)=>{
 
 
 
-app.listen(proses.env.PORT,()=>{
+app.listen(process.env.PORT,()=>{
 	console.log("funcionando");
 })
